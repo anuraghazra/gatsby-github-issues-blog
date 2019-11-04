@@ -25,17 +25,13 @@ function () {
             createNode = actions.createNode;
             _context.prev = 2;
             // from a remote API.
-            REMOTE_API = "https://api.github.com/repos/anuraghazra/circleci-test/issues";
+            REMOTE_API = "https://api.github.com/repos/anuraghazra/circleci-test/issues?access_token=" + process.env.GITHUB_TOKEN;
             _context.next = 6;
             return axios.get(REMOTE_API);
 
           case 6:
             githubIssuesData = _context.sent;
-            _context.next = 9;
-            return githubIssuesData.data;
-
-          case 9:
-            issues = _context.sent;
+            issues = githubIssuesData.data;
             filteredissue = issues.filter(function (i) {
               if (!i.pull_request && i.state === 'open' && i.labels.some(function (label) {
                 return label.name == 'blog';
@@ -70,17 +66,17 @@ function () {
             });
             return _context.abrupt("return");
 
-          case 16:
-            _context.prev = 16;
+          case 14:
+            _context.prev = 14;
             _context.t0 = _context["catch"](2);
             reporter.panic(_context.t0);
 
-          case 19:
+          case 17:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[2, 16]]);
+    }, _callee, null, [[2, 14]]);
   }));
 
   return function (_x, _x2) {

@@ -7,9 +7,9 @@ exports.sourceNodes = async (context, options) => {
   try {
 
     // from a remote API.
-    const REMOTE_API = `https://api.github.com/repos/anuraghazra/circleci-test/issues`
+    const REMOTE_API = `https://api.github.com/repos/anuraghazra/circleci-test/issues?access_token=${process.env.GITHUB_TOKEN}`
     const githubIssuesData = await axios.get(REMOTE_API)
-    let issues = await githubIssuesData.data;
+    let issues = githubIssuesData.data;
 
     let filteredissue = issues.filter(i => {
       if (
