@@ -1,4 +1,7 @@
 const axios = require('axios');
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 exports.sourceNodes = async (context, options) => {
   const { actions, createNodeId, createContentDigest, reporter } = context;
@@ -6,8 +9,6 @@ exports.sourceNodes = async (context, options) => {
   const { repo, user, filterByLabelName } = options;
 
   try {
-
-    // from a remote API.
     const REMOTE_API = `https://api.github.com/repos/${user}/${repo}/issues?access_token=${process.env.GITHUB_TOKEN || ''}`
     const githubIssuesData = await axios.get(REMOTE_API)
     let issues = githubIssuesData.data;

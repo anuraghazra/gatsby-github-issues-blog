@@ -1,12 +1,12 @@
 module.exports = {
   pathPrefix: `/gatsby-github-issues-blog`,
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `Gatsby Github Issues Blog`,
+    author: `Anurag Hazra`,
+    description: `A gatsby blog which uses github issues to source data.`,
+    siteUrl: `https://anuraghazra.github.io/gatsby-github-issues-blog/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `anuraghazru`,
     },
   },
   plugins: [

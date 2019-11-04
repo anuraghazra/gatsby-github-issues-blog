@@ -10,6 +10,10 @@ var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/
 
 var axios = require('axios');
 
+require("dotenv").config({
+  path: ".env." + process.env.NODE_ENV
+});
+
 exports.sourceNodes =
 /*#__PURE__*/
 function () {
@@ -25,7 +29,6 @@ function () {
             createNode = actions.createNode;
             repo = options.repo, user = options.user, filterByLabelName = options.filterByLabelName;
             _context.prev = 3;
-            // from a remote API.
             REMOTE_API = "https://api.github.com/repos/" + user + "/" + repo + "/issues?access_token=" + (process.env.GITHUB_TOKEN || '');
             _context.next = 7;
             return axios.get(REMOTE_API);
