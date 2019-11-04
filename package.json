@@ -50,7 +50,7 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
-    "prepublish": "cd plugins/gatsby-source-gh-issues && npm install",
+    "preinstall": "cd plugins/gatsby-source-gh-issues && npm install",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",

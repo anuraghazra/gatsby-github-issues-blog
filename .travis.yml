@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - 10.15.0
+
+cache:
+  directories:
+    - ~/.npm
+
+install:
+  - npm ci
+
+script:
+  - npm run build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: public
+  target_branch: gh-pages
+  on:
+    branch: master
