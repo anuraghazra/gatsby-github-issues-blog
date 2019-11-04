@@ -1,8 +1,8 @@
 name: Travis
 
 on:
-  label:
-    types: [created, deleted, edited]
+  issues:
+    types: [edited, deleted, closed, reopened, labeled, unlabeled]
 
 jobs:
   build:
