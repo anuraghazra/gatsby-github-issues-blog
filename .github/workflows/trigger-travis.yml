@@ -1,0 +1,17 @@
+name: TravisTrigger
+
+on:
+  label:
+    types: [created, deleted, edited]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: trigger build
+        uses: BanzaiMan/travis-ci-action@master
+        env:
+          TRAVIS_TOKEN: ${{ secrets.TRAVIS_TOKEN }}
+          SLUG: anuraghazra/gatsby-github-issues-blog
+          SITE: org
