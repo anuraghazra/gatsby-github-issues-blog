@@ -1,5 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const slugify = require('slugify');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -54,11 +55,21 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
+    let parentType = getNode(node.parent);
+    console.log(parentType.internal.owner)
+    if (parentType.internal.owner == 'gatsby-source-gh-issues') {
+      createNodeField({
+        name: `slug`,
+        node,
+        value: slugify(node.frontmatter.title.toLowerCase())
+      })
+    } else {
+      const value = createFilePath({ node, getNode, trailingSlash: false })
+      createNodeField({
+        name: `slug`,
+        node,
+        value,
+      })
+    }
   }
 }

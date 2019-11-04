@@ -23,6 +23,8 @@ module.exports = {
         name: `assets`,
       },
     },
+    // ------ gatsby-source-gh-issues
+    `gatsby-source-gh-issues`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
