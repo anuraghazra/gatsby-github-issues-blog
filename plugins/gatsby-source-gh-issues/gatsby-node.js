@@ -25,7 +25,7 @@ function () {
             createNode = actions.createNode;
             _context.prev = 2;
             // from a remote API.
-            REMOTE_API = "https://api.github.com/repos/anuraghazra/circleci-test/issues?access_token=" + process.env.GITHUB_TOKEN;
+            REMOTE_API = "https://api.github.com/repos/anuraghazra/circleci-test/issues?access_token=" + (process.env.GITHUB_TOKEN || '');
             _context.next = 6;
             return axios.get(REMOTE_API);
 
