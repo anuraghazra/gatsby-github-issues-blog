@@ -3,11 +3,12 @@ const axios = require('axios');
 exports.sourceNodes = async (context, options) => {
   const { actions, createNodeId, createContentDigest, reporter } = context;
   const { createNode } = actions;
+  const { repo, user, filterByLabelName } = options;
 
   try {
 
     // from a remote API.
-    const REMOTE_API = `https://api.github.com/repos/anuraghazra/circleci-test/issues?access_token=${process.env.GITHUB_TOKEN || ''}`
+    const REMOTE_API = `https://api.github.com/repos/${user}/${repo}/issues?access_token=${process.env.GITHUB_TOKEN || ''}`
     const githubIssuesData = await axios.get(REMOTE_API)
     let issues = githubIssuesData.data;
 
@@ -15,7 +16,7 @@ exports.sourceNodes = async (context, options) => {
       if (
         !i.pull_request
         && i.state === 'open'
-        && i.labels.some((label) => label.name == 'blog')
+        && i.labels.some((label) => label.name == filterByLabelName)
       ) return true;
       return false;
     })

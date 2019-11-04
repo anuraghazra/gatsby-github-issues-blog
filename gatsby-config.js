@@ -25,7 +25,14 @@ module.exports = {
       },
     },
     // ------ gatsby-source-gh-issues
-    `gatsby-source-gh-issues`,
+    {
+      resolve: `gatsby-source-gh-issues`,
+      options: {
+        user: 'anuraghazra',
+        repo: 'gatsby-github-issues-blog',
+        filterByLabelName: 'blog'
+      }
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
