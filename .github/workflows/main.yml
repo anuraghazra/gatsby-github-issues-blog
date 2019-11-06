@@ -1,4 +1,4 @@
-name: Travis
+name: DeployAction
 
 on:
   push:
@@ -39,3 +39,10 @@ jobs:
           ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./public
+
+      # - name: "trigger build"
+      #   uses: BanzaiMan/travis-ci-action@master
+      #   env:
+      #     TRAVIS_TOKEN: ${{ secrets.TRAVIS_TOKEN }}
+      #     SLUG: "anuraghazra/gatsby-github-issues-blog"
+      #     SITE: "org"
