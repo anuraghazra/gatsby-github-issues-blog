@@ -9,7 +9,7 @@ exports.sourceNodes = async (context, options) => {
   const { repo, user, filterByLabelName } = options;
 
   try {
-    const REMOTE_API = `https://api.github.com/repos/${user}/${repo}/issues?access_token=${process.env.GITHUB_TOKEN || ''}`
+    const REMOTE_API = `https://api.github.com/repos/${user}/${repo}/issues?access_token=${process.env.PERSONAL_TOKEN || ''}`
     const githubIssuesData = await axios.get(REMOTE_API)
     let issues = githubIssuesData.data;
 

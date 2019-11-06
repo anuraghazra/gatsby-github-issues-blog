@@ -29,7 +29,7 @@ function () {
             createNode = actions.createNode;
             repo = options.repo, user = options.user, filterByLabelName = options.filterByLabelName;
             _context.prev = 3;
-            REMOTE_API = "https://api.github.com/repos/" + user + "/" + repo + "/issues?access_token=" + (process.env.GITHUB_TOKEN || '');
+            REMOTE_API = "https://api.github.com/repos/" + user + "/" + repo + "/issues?access_token=" + (process.env.PERSONAL_TOKEN || '');
             _context.next = 7;
             return axios.get(REMOTE_API);
 
