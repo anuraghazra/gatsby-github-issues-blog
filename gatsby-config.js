@@ -1,12 +1,14 @@
+const config = require('./config/website.js')
+
 module.exports = {
   pathPrefix: `/gatsby-github-issues-blog`,
   siteMetadata: {
-    title: `Gatsby Github Issues Blog`,
-    author: `Anurag Hazra`,
-    description: `A gatsby blog which uses github issues to source data.`,
-    siteUrl: `https://anuraghazra.github.io/gatsby-github-issues-blog/`,
+    title: config.siteTitle,
+    author: config.siteAuthor,
+    description: config.siteDescription,
+    siteUrl: config.siteUrl,
     social: {
-      twitter: `anuraghazru`,
+      twitter: config.twitter,
     },
   },
   plugins: [
@@ -67,8 +69,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: config.siteTitle,
+        short_name: config.siteShortName,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
